@@ -1536,5 +1536,37 @@ footer {
   .footer-info {
     gap: 8px;
   }
+  
+  /* 모바일 문의 폼 잘림 및 넘침 전면 해결 */
+  .contact-container {
+    padding: 24px 16px;
+  }
+  .form-group label {
+    font-size: 0.9rem;
+    word-break: keep-all;
+    line-height: 1.4;
+  }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+  .privacy-agreement {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+  }
+  .privacy-agreement label {
+    font-size: 0.82rem;
+    line-height: 1.4;
+    word-break: keep-all;
+    cursor: pointer;
+  }
+  .privacy-agreement input {
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
 }
 
