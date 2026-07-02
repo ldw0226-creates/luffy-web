@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>루피수상레저 - 가평 최고의 수상레저 & 워터파크</title>
+  <meta name="description" content="가평 최대 규모의 워터파크와 최신형 물놀이 기구, 수상스키 & 웨이크보드 강습, 직영 펜션 완비! 루피수상레저에서 짜릿한 여름을 함께하세요.">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Leaflet Map CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+</head>
+<body>
+
+  <!-- 헤더 & 내비게이션 -->
+  <header id="header">
+    <div class="container header-container">
+      <div class="logo">
+        <a href="#hero">
+          <span class="logo-text-en">LUFFY</span>
+          <span class="logo-text-ko">루피수상레저</span>
+        </a>
+      </div>
+      
+      <nav class="nav-links" id="navLinks">
+        <a href="#hero">홈</a>
+        <a href="#intro">루피소개</a>
+        <a href="#pricing">패키지 요금</a>
+        <a href="#services">편의 서비스</a>
+        <a href="#gallery">포토 갤러리</a>
+        <a href="#faq">FAQ</a>
+        <a href="#location">오시는 길</a>
+        <a href="#contact" class="mobile-only-btn">문의하기</a>
+      </nav>
+      
+      <div class="header-cta">
+        <a href="#contact" class="btn-primary">실시간 예약/문의</a>
+      </div>
+      
+      <div class="menu-toggle" id="menuToggle">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- 히어로 비디오 섹션 -->
+  <section class="hero" id="hero">
+    <div class="hero-video-container">
+      <video autoplay muted loop playsinline id="heroVideo">
+        <source src="동영상/루피_가편집.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>홍천강 푸른 강줄기에 펼쳐지는<br>짜릿한 여름! <span>루피수상레저</span></h1>
+      <p>최신형 물놀이기구 6종 • 홍천강 최고의 워터파크 • 초보자 맞춤형 선출강습</p>
+      <div class="hero-buttons">
+        <a href="#pricing" class="btn-primary"><i class="fa-solid fa-tags"></i> 패키지 요금 보기</a>
+        <a href="#contact" class="btn-secondary"><i class="fa-solid fa-paper-plane"></i> 문의사항 작성</a>
+      </div>
+    </div>
+    <div class="hero-scroll-btn" id="scrollBtn">
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- 업체 소개 섹션 -->
+  <section class="section-padding intro-section" id="intro">
+    <div class="container">
+      <div class="section-title">
+        <h2>루피수상레저 소개</h2>
+        <p>안전하고 시원하며 짜릿한 최고의 추억을 선사해 드립니다.</p>
+      </div>
+      
+      <div class="intro-grid">
+        <div class="intro-text">
+          <h3>신축 최고의 시설과<br><span>가장 안전한 물놀이 환경</span>을 자랑합니다.</h3>
+          <p>
+            루피수상레저는 맑고 푸른 북한강변에 위치하여 가평 최대 규모의 메가 워터파크를 운영 중입니다. 
+            매년 최신식 물놀이 기구를 도입하고 철저한 안전 검사를 실시하고 있으며, 라이프자켓과 안전 헬멧 착용을 의무화하고 있습니다.
+            국가공인 인명구조 요원 및 수상 스포츠 전문 베테랑 강사진들이 상주하여 초보자들도 안심하고 시원하게 수상 스포츠를 만끽하실 수 있습니다.
+          </p>
+          <div class="intro-features">
+            <div class="feature-item glass-card">
+              <span class="feature-icon">🛡️</span>
+              <h4>안전 최우선 시스템</h4>
+              <p>인명구조 요원 상시 배치 및 철저한 탑승 전 안전 교육 실시</p>
+            </div>
+            <div class="feature-item glass-card">
+              <span class="feature-icon">🏄</span>
+              <h4>베테랑 맞춤식 강습</h4>
+              <p>지상 및 수상 교육을 연계해 초보자도 하루 만에 기립 성공</p>
+            </div>
+            <div class="feature-item glass-card">
+              <span class="feature-icon">🎢</span>
+              <h4>10여 종 물놀이 기구</h4>
+              <p>바나나보트, 디스코보트, 와일드팡팡 등 최신 스릴 기구</p>
+            </div>
+            <div class="feature-item glass-card">
+              <span class="feature-icon">🏪</span>
+              <h4>완벽한 편의 시설</h4>
+              <p>남녀 탈의실, 야외 태닝용 선베드, 푸드존, 샤워실 구비</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="intro-image-slider" id="introSlider">
+          <img src="이미지/KakaoTalk_20260702_212352148.jpg" alt="루피수상레저 전경 1" class="active">
+          <img src="이미지/KakaoTalk_20260702_212354789.jpg" alt="루피수상레저 놀이기구 2">
+          <img src="이미지/KakaoTalk_20260702_212355742.jpg" alt="루피수상레저 전경 3">
+          <img src="이미지/KakaoTalk_20260702_212356361.jpg" alt="루피수상레저 놀이기구 4">
+          <div class="slider-controls">
+            <button class="slider-btn" id="sliderPrev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="slider-btn" id="sliderNext"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 패키지 및 가격 정보 섹션 -->
+  <section class="section-padding pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-title">
+        <h2>패키지 가격표</h2>
+        <p>다양하고 합리적인 할인 혜택으로 루피수상레저를 만나보세요.</p>
+      </div>
+      
+      <!-- 패키지 탭 버튼 -->
+      <div class="pricing-tabs">
+        <button class="tab-btn active" data-tab="waterplay">물놀이 패키지</button>
+        <button class="tab-btn" data-tab="lessons">강습 패키지</button>
+        <button class="tab-btn" data-tab="boating">모터보트 보팅</button>
+        <button class="tab-btn" data-tab="lodging-play">숙박+물놀이 패키지</button>
+        <button class="tab-btn" data-tab="lodging-lesson">숙박+강습 패키지</button>
+      </div>
+      
+      <!-- 1. 물놀이 패키지 탭 콘텐츠 -->
+      <div class="tab-pane active" id="waterplay">
+        <div class="pricing-info-bar">
+          <p><i class="fa-solid fa-circle-info"></i> 놀이기구 종류: 플라이피쉬, 땅콩보트, 바나나보트, 디스코보트, 자이언트마블, 밴드웨건, 팡팡, 와일드팡팡 중 선택</p>
+          <p><strong>* 모든 물놀이 패키지 구매 시 가평 최고 시설의 '대형 워터파크 입장권'이 무료 포함됩니다!</strong></p>
+        </div>
+        <div class="pricing-grid">
+          <!-- 카드 1 -->
+          <div class="price-card glass-card">
+            <div class="price-card-header">
+              <span class="badge-discount">50% OFF</span>
+              <h4>놀이기구 선택 2종<br>+ 워터파크</h4>
+              <div class="price-box">
+                <span class="original-price">40,000원</span>
+                <span class="discount-price">20,000<span>원</span></span>
+              </div>
+            </div>
+            <div class="price-card-body">
+              <ul class="price-features-list">
+                <li class="option-tag">1인 기준가</li>
+                <li>최신 인기 놀이기구 10종 중 2가지 자유 선택 탑승</li>
+                <li>초대형 워터파크 이용 무료 포함</li>
+                <li>구명조끼, 안전 헬멧 대여 및 안전 가이드 포함</li>
+              </ul>
+              <div class="price-card-footer">
+                <a href="#contact" class="btn-primary" onclick="selectPackage('물놀이패키지 - 놀이기구 선택 2종 + 워터파크')">지금 예약하기</a>
+              </div>
+            </div>
+          </div>
+          <!-- 카드 2 -->
+          <div class="price-card glass-card">
+            <div class="price-card-header">
+              <span class="badge-discount">50% OFF</span>
+              <h4>놀이기구 선택 3종<br>+ 워터파크</h4>
+              <div class="price-box">
+                <span class="original-price">60,000원</span>
+                <span class="discount-price">30,000<span>원</span></span>
+              </div>
+            </div>
+            <div class="price-card-body">
+              <ul class="price-features-list">
+                <li class="option-tag">1인 기준가</li>
+                <li>최신 인기 놀이기구 10종 중 3가지 자유 선택 탑승</li>
+                <li>초대형 워터파크 이용 무료 포함</li>
+                <li>구명조끼, 안전 헬멧 대여 및 안전 가이드 포함</li>
+              </ul>
+              <div class="price-card-footer">
+                <a href="#contact" class="btn-primary" onclick="selectPackage('물놀이패키지 - 놀이기구 선택 3종 + 워터파크')">지금 예약하기</a>
+              </div>
+            </div>
+          </div>
+          <!-- 카드 3 -->
+          <div class="price-card glass-card">
+            <div class="price-card-header">
+              <span class="badge-discount">60% OFF</span>
+              <h4>놀이기구 선택 5종<br>+ 워터파크</h4>
+              <div class="price-box">
+                <span class="original-price">100,000원</span>
+                <span class="discount-price">40,000<span>원</span></span>
+              </div>
+            </div>
+            <div class="price-card-body">
+              <ul class="price-features-list">
+                <li class="option-tag">1인 기준가</li>
+                <li>최신 인기 놀이기구 10종 중 5가지 자유 선택 탑승</li>
+                <li>초대형 워터파크 이용 무료 포함</li>
+                <li>구명조끼, 안전 헬멧 대여 및 안전 가이드 포함</li>
+              </ul>
+              <div class="price-card-footer">
+                <a href="#contact" class="btn-primary" onclick="selectPackage('물놀이패키지 - 놀이기구 선택 5종 + 워터파크')">지금 예약하기</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="original-board-btn">
+          <button class="btn-secondary" onclick="openPriceBoard('물놀이패키지')"><i class="fa-regular fa-image"></i> 물놀이 패키지 원본 요금표 보기</button>
+        </div>
+      </div>
+      
+      <!-- 2. 강습 패키지 탭 콘텐츠 -->
+      <div class="tab-pane" id="lessons">
+        <div class="pricing-info-bar">
+          <p><i class="fa-solid fa-graduation-cap"></i> 웨이크보드 & 수상스키 강습 패키지</p>
+          <p><strong>* 강습 패키지는 전문 강사 일대일 맞춤 지상교육 및 수상교육 2회와 워터파크 입장이 무료 포함됩니다!</strong></p>
+        </div>
+        <div class="pricing-grid">
+          <!-- 카드 1 -->
+          <div class="price-card glass-card">
+            <div class="price-card-header">
+              <span class="badge-discount">17% OFF</span>
+              <h4>웨이크보드/수상스키 체험2회<br>+ 워터파크</h4>
+              <div class="price-box">
+                <span class="original-price">60,000원</span>
+                <span class="discount-price">50,000<span>원</span></span>
+              </div>
+            </div>
+            <div class="price-card-body">
+              <ul class="price-features-list">
+                <li class="option-tag">1인 기준가</li>
+                <li>전문 코치의 체계적인 [지상교육 + 수상교육 2회]</li>
+                <li>초대형 워터파크 입장권 포함</li>
+                <li>초보자 맞춤형 장비 및 구명조끼 대여 무료</li>
+              </ul>
+              <div class="price-card-footer">
+                <a href="#contact" class="btn-primary" onclick="selectPackage('강습패키지 - 체험 2회 + 워터파크')">지금 예약하기</a>
+              </div>
+            </div>
+          </div>
+          <!-- 카드 2 -->
+          <div class="price-card glass-card">
+            <div class="price-card-header">
+              <span class="badge-discount">42% OFF</span>
+              <h4>웨이크보드/수상스키 체험2회<br>+ 놀이기구 3종 + 워터파크</h4>
+              <div class="price-box">
+                <span class="original-price">120,000원</span>
+                <span class="discount-price">70,000<span>원</span></span>
+              </div>
+            </div>
+            <div class="price-card-body">
+              <ul class="price-features-list">
+                <li class="option-tag">1인 기준가</li>
+                <li>체계적인 강습 [지상교육 + 수상교육 2회]</li>
+                <li>놀이기구 선택 3종 탑승</li>
+                <li>초대형 워터파크 입장권 포함</li>
+                <li>장비 및 구명조끼 대여 무료</li>
+              </ul>
+              <div class="price-card-footer">
+                <a href="#contact" class="btn-primary" onclick="selectPackage('강습패키지 - 체험 2회 + 놀이기구 3종 + 워터파크')">지금 예약하기</a>
+              </div>
+            </div>
+          </div>
+          <!-- 카드 3 -->
+          <div class="price-card glass-card">
+            <div class="price-card-header">
+              <span class="badge-discount">44% OFF</span>
+              <h4>웨이크보드/수상스키 체험2회<br>+ 놀이기구 5종 + 워터파크</h4>
+              <div class="price-box">
+                <span class="original-price">160,000원</span>
+                <span class="discount-price">90,000<span>원</span></span>
+              </div>
+            </div>
+            <div class="price-card-body">
+              <ul class="price-features-list">
+                <li class="option-tag">1인 기준가</li>
+                <li>체계적인 강습 [지상교육 + 수상교육 2회]</li>
+                <li>놀이기구 선택 5종 탑승</li>
+                <li>초대형 워터파크 입장권 포함</li>
+                <li>장비 및 구명조끼 대여 무료</li>
+              </ul>
+              <div class="price-card-footer">
+                <a href="#contact" class="btn-primary" onclick="selectPackage('강습패키지 - 체험 2회 + 놀이기구 5종 + 워터파크')">지금 예약하기</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="original-board-btn">
+          <button class="btn-secondary" onclick="openPriceBoard('강습패키지')"><i class="fa-regular fa-image"></i> 강습 패키지 원본 요금표 보기</button>
+        </div>
+      </div>
+      
+      <!-- 3. 모터보트 보팅 탭 콘텐츠 -->
+      <div class="tab-pane" id="boating">
+        <div class="pricing-info-bar">
+          <p><i class="fa-solid fa-ship"></i> 럭셔리 모터보트 스피드 보팅</p>
+          <p><strong>* 가족, 친구들과 강바람을 뚫고 달리는 최고 속도의 스피드보트 투어를 즐기세요 (음료 5잔 무료 서비스)</strong></p>
+        </div>
+        <div class="pricing-grid">
+          <!-- 카드 1 -->
+          <div class="price-card glass-card">
+            <div class="price-card-header">
+              <span class="badge-discount">29% OFF</span>
+              <h4>홍천강 일주 모터보트 보팅</h4>
+              <div class="price-box">
+                <span class="original-price">140,000원</span>
+                <span class="discount-price">100,000<span>원</span></span>
+              </div>
+            </div>
+            <div class="price-card-body">
+              <ul class="price-features-list">
+                <li class="option-tag">최대 5인 탑승 가능</li>
+                <li>아름다운 홍천강 절경 일주 코스 보팅</li>
+                <li>시원한 시그니처 캔음료 5잔 무료 증정</li>
+                <li>베테랑 보트 조종사 동행 및 탑승 사진 촬영</li>
+              </ul>
+              <div class="price-card-footer">
+                <a href="#contact" class="btn-primary" onclick="selectPackage('모터보팅 - 홍천강 일주')">지금 예약하기</a>
+              </div>
+            </div>
+          </div>
+          <!-- 카드 2 -->
+          <div class="price-card glass-card">
+            <div class="price-card-header">
+              <span class="badge-discount">29% OFF</span>
+              <h4>남이섬 일주 모터보트 보팅</h4>
+              <div class="price-box">
+                <span class="original-price">350,000원</span>
+                <span class="discount-price">250,000<span>원</span></span>
+              </div>
+            </div>
+            <div class="price-card-body">
+              <ul class="price-features-list">
+                <li class="option-tag">최대 5인 탑승 가능</li>
+                <li>럭셔리 스피드보트로 남이섬 전체 둘레길 일주 코스</li>
+                <li>시원한 시그니처 캔음료 5잔 무료 증정</li>
+                <li>바람을 가르는 최고속 쾌속 스릴 및 선상 풍경 감상</li>
+              </ul>
+              <div class="price-card-footer">
+                <a href="#contact" class="btn-primary" onclick="selectPackage('모터보팅 - 남이섬 일주')">지금 예약하기</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="original-board-btn">
+          <button class="btn-secondary" onclick="openPriceBoard('보팅')"><i class="fa-regular fa-image"></i> 보팅 원본 요금표 보기</button>
+        </div>
+      </div>
+      
+      <!-- 4. 숙박+물놀이 패키지 탭 콘텐츠 -->
+      <div class="tab-pane" id="lodging-play">
+        <div class="pricing-info-bar">
+          <p><i class="fa-solid fa-hotel"></i> 깔끔한 제휴/직영 펜션 숙박과 시원한 물놀이 기구 올인원 패키지</p>
+          <p><strong>* 수상레저와 편안한 숙박(펜션)을 한 번에 해결하고 바비큐까지 즐겨보세요!</strong></p>
+        </div>
+        <div class="pricing-grid">
+          <!-- 카드 1 -->
+          <div class="price-card glass-card">
+            <div class="price-card-header">
+              <span class="badge-discount">55% OFF</span>
+              <h4>펜션 + 놀이기구 3종<br>+ 워터파크</h4>
+              <div class="price-box">
+                <span class="original-price">110,000원</span>
+                <span class="discount-price">50,000<span>원</span></span>
+              </div>
+            </div>
+            <div class="price-card-body">
+              <ul class="price-features-list">
+                <li class="option-tag">1인 기준가</li>
+                <li>제휴 및 직영 펜션 1박 숙박 제공 (2인 이상 예약 가능)</li>
+                <li>놀이기구 선택 3종 탑승</li>
+                <li>초대형 워터파크 이용 무료</li>
+                <li>샤워실 및 편의시설 무료 대여</li>
+              </ul>
+              <div class="price-card-footer">
+                <a href="#contact" class="btn-primary" onclick="selectPackage('숙박물놀이패키지 - 펜션 + 놀이기구 3종 + 워터파크')">지금 예약하기</a>
+              </div>
+            </div>
+          </div>
+          <!-- 카드 2 -->
+          <div class="price-card glass-card">
+            <div class="price-card-header">
+              <span class="badge-discount">60% OFF</span>
+              <h4>펜션 + 놀이기구 5종<br>+ 워터파크</h4>
+              <div class="price-box">
+                <span class="original-price">150,000원</span>
+                <span class="discount-price">60,000<span>원</span></span>
+              </div>
+            </div>
+            <div class="price-card-body">
+              <ul class="price-features-list">
+                <li class="option-tag">1인 기준가</li>
+                <li>제휴 및 직영 펜션 1박 숙박 제공 (2인 이상 예약 가능)</li>
+                <li>놀이기구 선택 5종 탑승</li>
+                <li>초대형 워터파크 이용 무료</li>
+                <li>구명조끼, 안전 헬멧 무료 대여</li>
+              </ul>
+              <div class="price-card-footer">
+                <a href="#contact" class="btn-primary" onclick="selectPackage('숙박물놀이패키지 - 펜션 + 놀이기구 5종 + 워터파크')">지금 예약하기</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="original-board-btn">
+          <button class="btn-secondary" onclick="openPriceBoard('숙박물놀이패키지')"><i class="fa-regular fa-image"></i> 숙박+물놀이 원본 요금표 보기</button>
+        </div>
+      </div>
+      
+      <!-- 5. 숙박+강습 패키지 탭 콘텐츠 -->
+      <div class="tab-pane" id="lodging-lesson">
+        <div class="pricing-info-bar">
+          <p><i class="fa-solid fa-graduation-cap"></i> 수상 스포츠 매니아와 초보자 입문을 위한 명품 숙박 패키지</p>
+          <p><strong>* 전문 강사 맞춤형 스키/보드 강습을 받고, 예쁜 펜션에서 힐링할 수 있는 가성비 최고 코스!</strong></p>
+        </div>
+        <div class="pricing-grid">
+          <!-- 카드 1 -->
+          <div class="price-card glass-card">
+            <div class="price-card-header">
+              <span class="badge-discount">27% OFF</span>
+              <h4>펜션 + 스키/보드 강습 2회<br>+ 워터파크</h4>
+              <div class="price-box">
+                <span class="original-price">110,000원</span>
+                <span class="discount-price">80,000<span>원</span></span>
+              </div>
+            </div>
+            <div class="price-card-body">
+              <ul class="price-features-list">
+                <li class="option-tag">1인 기준가</li>
+                <li>제휴 및 직영 펜션 1박 숙박 제공</li>
+                <li>웨이크보드 또는 수상스키 맞춤형 강습 2회</li>
+                <li>초대형 워터파크 이용 무료</li>
+                <li>초보 장비 일체 대여</li>
+              </ul>
+              <div class="price-card-footer">
+                <a href="#contact" class="btn-primary" onclick="selectPackage('숙박강습패키지 - 펜션 + 강습 2회 + 워터파크')">지금 예약하기</a>
+              </div>
+            </div>
+          </div>
+          <!-- 카드 2 -->
+          <div class="price-card glass-card">
+            <div class="price-card-header">
+              <span class="badge-discount">47% OFF</span>
+              <h4>펜션 + 스키/보드 강습 2회<br>+ 놀이기구 3종 + 워터파크</h4>
+              <div class="price-box">
+                <span class="original-price">190,000원</span>
+                <span class="discount-price">100,000<span>원</span></span>
+              </div>
+            </div>
+            <div class="price-card-body">
+              <ul class="price-features-list">
+                <li class="option-tag">1인 기준가</li>
+                <li>제휴 및 직영 펜션 1박 숙박 제공</li>
+                <li>웨이크보드 또는 수상스키 맞춤형 강습 2회</li>
+                <li>놀이기구 선택 3종 자유 탑승</li>
+                <li>초대형 워터파크 이용 및 필수 장비 무료 렌탈</li>
+              </ul>
+              <div class="price-card-footer">
+                <a href="#contact" class="btn-primary" onclick="selectPackage('숙박강습패키지 - 펜션 + 강습 2회 + 놀이기구 3종 + 워터파크')">지금 예약하기</a>
+              </div>
+            </div>
+          </div>
+          <!-- 카드 3 -->
+          <div class="price-card glass-card">
+            <div class="price-card-header">
+              <span class="badge-discount">48% OFF</span>
+              <h4>펜션 + 스키/보드 강습 2회<br>+ 놀이기구 5종 + 워터파크</h4>
+              <div class="price-box">
+                <span class="original-price">210,000원</span>
+                <span class="discount-price">110,000<span>원</span></span>
+              </div>
+            </div>
+            <div class="price-card-body">
+              <ul class="price-features-list">
+                <li class="option-tag">1인 기준가</li>
+                <li>제휴 및 직영 펜션 1박 숙박 제공</li>
+                <li>웨이크보드 또는 수상스키 맞춤형 강습 2회</li>
+                <li>놀이기구 선택 5종 자유 탑승</li>
+                <li>초대형 워터파크 이용 및 필수 장비 무료 렌탈</li>
+              </ul>
+              <div class="price-card-footer">
+                <a href="#contact" class="btn-primary" onclick="selectPackage('숙박강습패키지 - 펜션 + 강습 2회 + 놀이기구 5종 + 워터파크')">지금 예약하기</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="original-board-btn">
+          <button class="btn-secondary" onclick="openPriceBoard('숙박강습패키지')"><i class="fa-regular fa-image"></i> 숙박+강습 원본 요금표 보기</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 편의 서비스 및 제휴 시설 안내 -->
+  <section class="section-padding services-section" id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>편의 및 부대 서비스</h2>
+        <p>몸만 편하게 오셔도 하루 종일 완벽하게 즐기실 수 있습니다.</p>
+      </div>
+      
+      <div class="services-grid">
+        <!-- 서비스 1 -->
+        <div class="service-card glass-card">
+          <div class="service-img">
+            <img src="이미지/KakaoTalk_20260702_212401077.jpg" alt="무료 픽업 차량 서비스">
+          </div>
+          <div class="service-info">
+            <h4>가평역 • 가평터미널 무료 픽업</h4>
+            <p>대중교통을 이용하시는 고객분들을 위해 가평역과 가평 버스터미널에서 매시간 루피 전용 셔틀 차량으로 친절하고 편리하게 픽업 및 샌딩을 도와드립니다.</p>
+          </div>
+        </div>
+        <!-- 서비스 2 -->
+        <div class="service-card glass-card">
+          <div class="service-img">
+            <img src="이미지/KakaoTalk_20260702_212402327.jpg" alt="강변 바베큐 파티">
+          </div>
+          <div class="service-info">
+            <h4>시원한 강변 테라스 & 바비큐</h4>
+            <p>시원하게 펼쳐진 강을 바라보며 수상레저 직후 맛있는 음식을 즐기실 수 있도록 넓은 테라스 푸드존과 무제한 삼겹살 패키지 바비큐 서비스를 합리적인 가격에 운영 중입니다.</p>
+          </div>
+        </div>
+        <!-- 서비스 3 -->
+        <div class="service-card glass-card">
+          <div class="service-img">
+            <img src="이미지/KakaoTalk_20260702_212403722.jpg" alt="제휴 펜션 완비">
+          </div>
+          <div class="service-info">
+            <h4>제휴 & 직영 펜션 완비</h4>
+            <p>가족, 연인을 위한 최고급 리버뷰 스파 풀빌라부터 동아리, 회사 엠티를 위한 최대 50인 수용 대형 독채 민박까지 제휴 및 직영된 다양한 객실을 회원 우대가에 연결해 드립니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 포토 갤러리 섹션 (20장 이미지 리소스 제공) -->
+  <section class="section-padding gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-title">
+        <h2>현장 생생한 갤러리</h2>
+        <p>루피수상레저를 직접 즐기신 소중한 고객들의 리얼하고 시원한 모습들을 확인해 보세요.</p>
+      </div>
+      
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- 20장 이미지 동적 추가 또는 수동 추가 -->
+        <div class="gallery-item" data-index="0">
+          <img src="이미지/KakaoTalk_20260702_212352148.jpg" alt="물놀이 스릴 1">
+          <div class="gallery-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="gallery-item" data-index="1">
+          <img src="이미지/KakaoTalk_20260702_212354789.jpg" alt="물놀이 스릴 2">
+          <div class="gallery-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="gallery-item" data-index="2">
+          <img src="이미지/KakaoTalk_20260702_212355742.jpg" alt="물놀이 스릴 3">
+          <div class="gallery-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="gallery-item" data-index="3">
+          <img src="이미지/KakaoTalk_20260702_212356361.jpg" alt="물놀이 스릴 4">
+          <div class="gallery-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="gallery-item" data-index="4">
+          <img src="이미지/KakaoTalk_20260702_212357616.jpg" alt="물놀이 스릴 5">
+          <div class="gallery-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="gallery-item" data-index="5">
+          <img src="이미지/KakaoTalk_20260702_212358259.jpg" alt="물놀이 스릴 6">
+          <div class="gallery-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="gallery-item" data-index="6">
+          <img src="이미지/KakaoTalk_20260702_212359233.jpg" alt="물놀이 스릴 7">
+          <div class="gallery-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="gallery-item" data-index="7">
+          <img src="이미지/KakaoTalk_20260702_212401077.jpg" alt="물놀이 스릴 8">
+          <div class="gallery-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="gallery-item" data-index="8">
+          <img src="이미지/KakaoTalk_20260702_212401532.jpg" alt="물놀이 스릴 9">
+          <div class="gallery-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="gallery-item" data-index="9">
+          <img src="이미지/KakaoTalk_20260702_212402327.jpg" alt="물놀이 스릴 10">
+          <div class="gallery-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="gallery-item" data-index="10">
+          <img src="이미지/KakaoTalk_20260702_212403722.jpg" alt="물놀이 스릴 11">
+          <div class="gallery-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="gallery-item" data-index="11">
+          <img src="이미지/KakaoTalk_20260702_212404679.jpg" alt="물놀이 스릴 12">
+          <div class="gallery-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="gallery-item" data-index="12">
+          <img src="이미지/KakaoTalk_20260702_212407791.jpg" alt="물놀이 스릴 13">
+          <div class="gallery-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="gallery-item" data-index="13">
+          <img src="이미지/KakaoTalk_20260702_212408793.jpg" alt="물놀이 스릴 14">
+          <div class="gallery-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="gallery-item" data-index="14">
+          <img src="이미지/KakaoTalk_20260702_212409838.jpg" alt="물놀이 스릴 15">
+          <div class="gallery-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="gallery-item" data-index="15">
+          <img src="이미지/KakaoTalk_20260702_212411995.jpg" alt="물놀이 스릴 16">
+          <div class="gallery-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="gallery-item" data-index="16">
+          <img src="이미지/KakaoTalk_20260702_212412824.jpg" alt="물놀이 스릴 17">
+          <div class="gallery-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="gallery-item" data-index="17">
+          <img src="이미지/KakaoTalk_20260702_212413609.jpg" alt="물놀이 스릴 18">
+          <div class="gallery-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="gallery-item" data-index="18">
+          <img src="이미지/KakaoTalk_20260702_212414534.jpg" alt="물놀이 스릴 19">
+          <div class="gallery-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="gallery-item" data-index="19">
+          <img src="이미지/KakaoTalk_20260702_212414971.jpg" alt="물놀이 스릴 20">
+          <div class="gallery-item-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 자주 묻는 질문 (FAQ) 섹션 -->
+  <section class="section-padding faq-section" id="faq">
+    <div class="container">
+      <div class="section-title">
+        <h2>자주 묻는 질문 (FAQ)</h2>
+        <p>루피수상레저를 이용하시기 전, 궁금한 사항들을 친절하게 정리해 드립니다.</p>
+      </div>
+      
+      <div class="faq-list">
+        <!-- Q1 -->
+        <div class="faq-item glass-card">
+          <div class="faq-question">
+            <h4>Q. 수상레저 예약 및 이용 프로세스는 어떻게 되나요?</h4>
+            <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              A. 먼저 홈페이지 하단의 '실시간 예약/문의' 양식 또는 카카오톡/전화로 문의를 주시면 담당 직원이 예약 가능 여부와 펜션 현황을 체크한 뒤 입금 안내 문자를 전송해 드립니다. 예약 확정금 입금 완료 시 확정 안내 메시지가 발송되며 예약하신 날짜에 방문하여 인포메이션 부스에 예약자명을 말씀해 주시면 티켓과 아쿠아 삭스를 수령하실 수 있습니다.
+            </div>
+          </div>
+        </div>
+        <!-- Q2 -->
+        <div class="faq-item glass-card">
+          <div class="faq-question">
+            <h4>Q. 아쿠아슈즈나 개인 장비를 꼭 지참해야 하나요? 복장이 궁금합니다.</h4>
+            <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              A. 안전 및 위생 규칙상 워터파크와 놀이기구 탑승 시 아쿠아삭스(아쿠아슈즈) 착용이 의무화되어 있습니다. 지참하지 않으셨을 경우 탈의실/매점에서 저렴하게 현장 구매가 가능합니다. 복장은 활동이 편하고 물이 잘 빠지는 래쉬가드, 보드쇼츠, 기능성 티셔츠 등이 적합하며 면 재질 의류는 탑승 시 다칠 위험이 있으므로 지양을 부탁드립니다. 개인 타올 및 세면도구를 꼭 챙겨와 주세요!
+            </div>
+          </div>
+        </div>
+        <!-- Q3 -->
+        <div class="faq-item glass-card">
+          <div class="faq-question">
+            <h4>Q. 비가 오는 날(우천 시)에도 물놀이를 운영하나요?</h4>
+            <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              A. 수상 스포츠 특성상 비가 와도 폭풍우, 집중 호우 경보 또는 강풍주의보 등의 기상 경보가 내려지지 않는 일반적인 우천 조건 하에서는 정상적으로 모든 기구와 강습을 정상 운영합니다. 오히려 비 오는 날 탑승하시면 대기 줄이 짧고 수온이 따뜻하게 느껴져 더욱 색다른 스릴을 즐기실 수 있습니다. 기상 특보로 취소될 시에는 전액 환불 및 일정 변경 조치를 친절히 진행해 드립니다.
+            </div>
+          </div>
+        </div>
+        <!-- Q4 -->
+        <div class="faq-item glass-card">
+          <div class="faq-question">
+            <h4>Q. 가평역 픽업 서비스 신청은 어떻게 하나요? 무료인가요?</h4>
+            <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              A. 대중교통 이용 고객 전원을 대상으로 무료 셔틀 서비스를 무료로 제공해 드립니다. 이용 전날까지 예약 시 '픽업 서비스 필요'에 체크하시거나 연락을 통해 가평역 또는 가평 터미널 도착 예정 시간을 사전에 등록해 주셔야 원활한 배차가 가능합니다. 당일 역 도착 15분 전 기사님께 유선 연락을 주시면 지정된 장소에서 편안하게 대기 차량에 탑승하실 수 있습니다.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 오시는 길 및 상세 정보 -->
+  <section class="section-padding location-section" id="location">
+    <div class="container">
+      <div class="section-title">
+        <h2>오시는 길</h2>
+        <p>시원하고 청량한 북한강 기슭의 루피수상레저 위치를 안내해 드립니다.</p>
+      </div>
+      
+      <div class="map-grid">
+        <!-- Leaflet Map Container -->
+        <div class="map-container" id="map"></div>
+        
+        <div class="map-info">
+          <h3><span>루피수상레저</span> 가평본점</h3>
+          
+          <div class="info-list">
+            <!-- 항목 1 -->
+            <div class="info-list-item">
+              <span class="info-list-icon"><i class="fa-solid fa-map-location-dot"></i></span>
+              <div class="info-list-text">
+                <h4>주소 안내</h4>
+                <p>경기도 가평군 설악면 미사리로 268-1 (구 주소: 미사리 422)</p>
+              </div>
+            </div>
+            <!-- 항목 2 -->
+            <div class="info-list-item">
+              <span class="info-list-icon"><i class="fa-solid fa-phone-volume"></i></span>
+              <div class="info-list-text">
+                <h4>예약 및 상담 전화</h4>
+                <p>010-8765-4321 • 대표번호: 1544-0000</p>
+              </div>
+            </div>
+            <!-- 항목 3 -->
+            <div class="info-list-item">
+              <span class="info-list-icon"><i class="fa-solid fa-car"></i></span>
+              <div class="info-list-text">
+                <h4>자가용 이용 시</h4>
+                <p>서울-양양고속도로 설악 IC에서 진출 후 청평/가평 방면으로 약 10분 소요 (넓은 무료 주차장 제공)</p>
+              </div>
+            </div>
+            <!-- 항목 4 -->
+            <div class="info-list-item">
+              <span class="info-list-icon"><i class="fa-solid fa-bus"></i></span>
+              <div class="info-list-text">
+                <h4>대중교통 및 무료 픽업</h4>
+                <p>경춘선 가평역 혹은 청평역 하차 후 매장 무료 픽업 셔틀버스 연계 이용 가능 (사전 신청 필수)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 문의사항 받기 (실시간 상담 문의 폼) -->
+  <section class="section-padding contact-section" id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>실시간 예약 및 문의</h2>
+        <p>원하시는 날짜와 패키지를 선택해 신청해 주시면 친절하게 유선 상담 전화를 드립니다.</p>
+      </div>
+      
+      <div class="contact-container glass-card">
+        <form class="contact-form" id="inquiryForm" onsubmit="handleFormSubmit(event)">
+          <!-- 이름 -->
+          <div class="form-group">
+            <label for="name">고객명 <b style="color:var(--color-danger)">*</b></label>
+            <input type="text" id="name" placeholder="성함을 입력하세요" required>
+          </div>
+          <!-- 연락처 -->
+          <div class="form-group">
+            <label for="phone">연락처 <b style="color:var(--color-danger)">*</b></label>
+            <input type="tel" id="phone" placeholder="010-0000-0000" required>
+          </div>
+          <!-- 예약 희망일 -->
+          <div class="form-group">
+            <label for="reserveDate">예약 희망일 <b style="color:var(--color-danger)">*</b></label>
+            <input type="date" id="reserveDate" required>
+          </div>
+          <!-- 패키지 선택 -->
+          <div class="form-group">
+            <label for="packageSelect">이용 희망 패키지 <b style="color:var(--color-danger)">*</b></label>
+            <select id="packageSelect" required>
+              <option value="" disabled selected>패키지를 선택해 주세요</option>
+              <optgroup label="물놀이 패키지">
+                <option value="물놀이패키지 - 놀이기구 선택 2종 + 워터파크">놀이기구 선택 2종 + 워터파크 (20,000원)</option>
+                <option value="물놀이패키지 - 놀이기구 선택 3종 + 워터파크">놀이기구 선택 3종 + 워터파크 (30,000원)</option>
+                <option value="물놀이패키지 - 놀이기구 선택 5종 + 워터파크">놀이기구 선택 5종 + 워터파크 (40,000원)</option>
+              </optgroup>
+              <optgroup label="스키/보드 강습 패키지">
+                <option value="강습패키지 - 체험 2회 + 워터파크">체험 2회 + 워터파크 (50,000원)</option>
+                <option value="강습패키지 - 체험 2회 + 놀이기구 3종 + 워터파크">체험 2회 + 놀이기구 3종 + 워터파크 (70,000원)</option>
+                <option value="강습패키지 - 체험 2회 + 놀이기구 5종 + 워터파크">체험 2회 + 놀이기구 5종 + 워터파크 (90,000원)</option>
+              </optgroup>
+              <optgroup label="스피드 보팅">
+                <option value="모터보팅 - 홍천강 일주">홍천강 일주 모터보트 보팅 (100,000원)</option>
+                <option value="모터보팅 - 남이섬 일주">남이섬 일주 모터보트 보팅 (250,000원)</option>
+              </optgroup>
+              <optgroup label="펜션 숙박 연계 패키지">
+                <option value="숙박물놀이패키지 - 펜션 + 놀이기구 3종 + 워터파크">펜션 + 놀이기구 3종 + 워터파크 (50,000원)</option>
+                <option value="숙박물놀이패키지 - 펜션 + 놀이기구 5종 + 워터파크">펜션 + 놀이기구 5종 + 워터파크 (60,000원)</option>
+                <option value="숙박강습패키지 - 펜션 + 강습 2회 + 워터파크">펜션 + 강습 2회 + 워터파크 (80,000원)</option>
+                <option value="숙박강습패키지 - 펜션 + 강습 2회 + 놀이기구 3종 + 워터파크">펜션 + 강습 2회 + 놀이기구 3종 + 워터파크 (100,000원)</option>
+                <option value="숙박강습패키지 - 펜션 + 강습 2회 + 놀이기구 5종 + 워터파크">펜션 + 강습 2회 + 놀이기구 5종 + 워터파크 (110,000원)</option>
+              </optgroup>
+            </select>
+          </div>
+          <!-- 인원 수 -->
+          <div class="form-group">
+            <label for="count">이용 예상 인원 <b style="color:var(--color-danger)">*</b></label>
+            <input type="number" id="count" min="1" max="100" value="2" required>
+          </div>
+          <!-- 픽업 신청 여부 -->
+          <div class="form-group">
+            <label for="pickup">가평역 픽업 서비스 신청</label>
+            <select id="pickup">
+              <option value="미신청">미신청 (자차 이용 등)</option>
+              <option value="가평역 픽업 희망">가평역 무료 픽업 희망</option>
+              <option value="가평터미널 픽업 희망">가평버스터미널 무료 픽업 희망</option>
+            </select>
+          </div>
+          <!-- 문의사항 상세 내용 -->
+          <div class="form-group full-width">
+            <label for="message">추가 문의 사항 및 요청 (숙박룸 선택, 바베큐 여부 기재 가능)</label>
+            <textarea id="message" placeholder="원하시는 문의사항이나 펜션 숙박에 관한 궁금점을 작성해 주세요."></textarea>
+          </div>
+          <!-- 약관 동의 -->
+          <div class="privacy-agreement">
+            <input type="checkbox" id="agree" required checked>
+            <label for="agree">개인정보 수집 및 예약 상담을 위한 이용 동의 (필수)</label>
+          </div>
+          
+          <div class="contact-submit-btn">
+            <button type="submit" class="btn-primary"><i class="fa-solid fa-paper-plane"></i> 예약 및 상담 신청하기</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3>루피수상레저</h3>
+          <p>가평 최대 스케일 워터파크 & 프리미엄 수상 레저 전문 센터</p>
+        </div>
+        <div class="footer-sns">
+          <a href="#" class="sns-link"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="sns-link"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" class="sns-link"><i class="fa-solid fa-comment"></i></a> <!-- 카카오 채널 아이콘 대용 -->
+        </div>
+      </div>
+      
+      <div class="footer-info">
+        <p><span>상호명:</span> 루피수상레저 주식회사</p>
+        <p><span>대표자:</span> 홍길동</p>
+        <p><span>사업자등록번호:</span> 123-45-67890</p>
+        <p><span>통신판매업신고번호:</span> 제 2026-경기가평-1234호</p>
+        <p><span>주소:</span> 경기도 가평군 설악면 미사리로 268-1</p>
+        <p><span>대표이메일:</span> support@luffywater.com</p>
+        <p><span>안전관리책임자:</span> 이몽룡</p>
+        <p><span>가평군청 수상레저 안전 기준필:</span> 제 A-9876호</p>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 루피수상레저. All rights reserved. Designed by Antigravity.</p>
+        <div class="footer-links">
+          <a href="#">이용약관</a>
+          <a href="#">개인정보처리방침</a>
+          <a href="#">안전수칙동의안내</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 요금표 이미지 보기 모달 -->
+  <div class="modal price-board-modal" id="priceBoardModal">
+    <div class="modal-close" onclick="closeModal('priceBoardModal')"><i class="fa-solid fa-xmark"></i></div>
+    <div class="modal-content">
+      <img src="" alt="요금표 원본" class="price-board-img" id="modalPriceBoardImg">
+    </div>
+  </div>
+
+  <!-- 포토 갤러리 슬라이더 라이트박스 모달 -->
+  <div class="modal lightbox-modal" id="lightboxModal">
+    <div class="modal-close" onclick="closeModal('lightboxModal')"><i class="fa-solid fa-xmark"></i></div>
+    <div class="lightbox-nav lightbox-prev" onclick="prevLightboxImage()"><i class="fa-solid fa-chevron-left"></i></div>
+    <div class="lightbox-nav lightbox-next" onclick="nextLightboxImage()"><i class="fa-solid fa-chevron-right"></i></div>
+    <div class="modal-content">
+      <img src="" alt="갤러리 확대 이미지" class="lightbox-img" id="lightboxImg">
+    </div>
+  </div>
+
+  <!-- 문의 등록 성공 모달 -->
+  <div class="modal success-modal" id="successModal">
+    <div class="modal-content">
+      <div class="modal-close" onclick="closeModal('successModal')"><i class="fa-solid fa-xmark"></i></div>
+      <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+      <h3>신청이 성공적으로 완료되었습니다!</h3>
+      <p>
+        작성해 주신 연락처(<span id="submittedPhone" style="font-weight:700;color:var(--color-secondary)">010-0000-0000</span>)로<br>
+        루피수상레저 예약 실시간 배정 담당자가 신속히 전화를 드리겠습니다.<br>
+        짜릿하고 안전한 가평 여행을 위해 최선을 다해 안내해 드리겠습니다. 감사합니다!
+      </p>
+      <button class="btn-primary" onclick="closeModal('successModal')">확인</button>
+    </div>
+  </div>
+
+  <!-- Leaflet Map JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  
+  <!-- Custom JS Script -->
+  <script src="script.js"></script>
+</body>
+</html>
