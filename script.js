@@ -263,9 +263,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// 11. 예약 문의사항 전송 처리 (가상 제출 및 모달 알림)
+// 11. 예약 문의사항 전송 처리 (Web3Forms API 연동으로 실시간 이메일 수신)
 function handleFormSubmit(event) {
   event.preventDefault();
+  
+  const submitBtn = event.target.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn.innerHTML;
+  
+  // 로딩 상태 표시
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> 전송 중...';
   
   const name = document.getElementById('name').value;
   const phone = document.getElementById('phone').value;
@@ -274,17 +281,51 @@ function handleFormSubmit(event) {
   const count = document.getElementById('count').value;
   const message = document.getElementById('message').value;
   
-  // 성공 팝업 모달에 전화번호 삽입
-  document.getElementById('submittedPhone').innerText = phone;
-  
-  // 모달 띄우기
-  document.getElementById('successModal').classList.add('active');
-  
-  // 폼 리셋
-  document.getElementById('inquiryForm').reset();
-  
-  // 내일 날짜 기본 세팅 복원
-  const tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  document.getElementById('reserveDate').value = tomorrow.toISOString().substring(0, 10);
+  // Web3Forms 전송 데이터 생성
+  const formData = {
+    access_key: 'f252c2eb-8a57-4f7e-9bd5-82aa120f1ba2',
+    subject: `[루피수상레저] ${name}님의 새로운 예약 상담 신청`,
+    name: name,
+    '연락처 (Phone)': phone,
+    '예약 희망일 (Date)': reserveDate,
+    '이용 희망 패키지 (Package)': packageSelect,
+    '이용 예상 인원 (Guests)': count,
+    '추가 문의 사항 및 요청': message || '없음'
+  };
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify(formData)
+  })
+  .then(async (response) => {
+    const json = await response.json();
+    if (response.status === 200) {
+      // 성공 팝업 모달에 전화번호 삽입
+      document.getElementById('submittedPhone').innerText = phone;
+      // 모달 띄우기
+      document.getElementById('successModal').classList.add('active');
+      // 폼 리셋
+      document.getElementById('inquiryForm').reset();
+      // 내일 날짜 기본 세팅 복원
+      const tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      document.getElementById('reserveDate').value = tomorrow.toISOString().substring(0, 10);
+    } else {
+      console.log(response);
+      alert('오류가 발생했습니다: ' + (json.message || '다시 시도해 주세요.'));
+    }
+  })
+  .catch(error => {
+    console.log(error);
+    alert('서버 전송 중 인터넷 연결 오류가 발생했습니다. 다시 시도해 주세요.');
+  })
+  .then(() => {
+    // 버튼 복원
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalBtnText;
+  });
 }
