@@ -608,7 +608,7 @@ header.scrolled .logo-text-ko {
 .discount-price {
   font-size: 2.2rem;
   font-weight: 900;
-  color: var(--color-secondary);
+  color: var(--color-danger);
 }
 
 .discount-price span {
