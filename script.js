@@ -243,7 +243,6 @@ function handleFormSubmit(event) {
   const reserveDate = document.getElementById('reserveDate').value;
   const packageSelect = document.getElementById('packageSelect').value;
   const count = document.getElementById('count').value;
-  const pickup = document.getElementById('pickup').value;
   const message = document.getElementById('message').value;
   
   // 성공 팝업 모달에 전화번호 삽입
