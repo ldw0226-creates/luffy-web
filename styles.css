@@ -567,7 +567,7 @@ header.scrolled .logo-text-ko {
 }
 
 .price-card-header {
-  padding: 32px 32px 20px 32px;
+  padding: 28px 24px 16px 24px;
   border-bottom: 1px dashed var(--glass-border);
   position: relative;
 }
@@ -618,7 +618,7 @@ header.scrolled .logo-text-ko {
 }
 
 .price-card-body {
-  padding: 32px;
+  padding: 24px 24px 28px 24px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -636,7 +636,7 @@ header.scrolled .logo-text-ko {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--text-muted);
   line-height: 1.4;
 }
