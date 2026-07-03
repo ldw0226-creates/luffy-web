@@ -200,7 +200,7 @@ faqItems.forEach(item => {
 // 10. Leaflet.js를 이용한 인터랙티브 가평 지도 로드
 let map;
 function initMap() {
-  const luffyCoords = [37.747124, 127.545892]; // 가평 북한강변 설악면 미사리로 가상 좌표
+  const luffyCoords = [37.7305028, 127.5670831]; // 홍천 마곡리 210-2 실사업장 좌표
   
   map = L.map('map', {
     scrollWheelZoom: false // 스크롤 줌 비활성화로 페이지 스크롤 방해 방지
@@ -218,7 +218,7 @@ function initMap() {
   });
   
   L.marker(luffyCoords, { icon: customIcon }).addTo(map)
-    .bindPopup('<div style="font-family:\'Noto Sans KR\'; text-align:center; padding:5px;"><h4 style="margin:0 0 5px 0; color:#0076ff;">루피수상레저</h4><p style="margin:0; font-size:0.85rem; color:#666;">경기도 가평군 설악면 미사리로 268-1</p></div>')
+    .bindPopup('<div style="font-family:\'Noto Sans KR\'; text-align:center; padding:5px;"><h4 style="margin:0 0 5px 0; color:#0076ff;">루피수상레저</h4><p style="margin:0; font-size:0.85rem; color:#666;">강원도 홍천군 서면 마곡길 394-40</p></div>')
     .openPopup();
 }
 
