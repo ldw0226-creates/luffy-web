@@ -1,12 +1,21 @@
-// 1. 헤더 스크롤 효과
+// 1. 헤더 스크롤 효과 (requestAnimationFrame 및 passive 옵션 적용으로 INP 최적화)
+let scrollTicking = false;
 window.addEventListener('scroll', () => {
-  const header = document.getElementById('header');
-  if (window.scrollY > 50) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
+  if (!scrollTicking) {
+    window.requestAnimationFrame(() => {
+      const header = document.getElementById('header');
+      if (header) {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+      scrollTicking = false;
+    });
+    scrollTicking = true;
   }
-});
+}, { passive: true });
 
 // 2. 모바일 메뉴 토글
 const menuToggle = document.getElementById('menuToggle');
@@ -222,16 +231,36 @@ function initMap() {
     .openPopup();
 }
 
-// Leaflet 지도는 DOM이 모두 준비된 후 초기화
+// Leaflet 지도는 DOM이 모두 준비되고 사용자가 해당 영역 근처로 스크롤했을 때 지연 로드 (Intersection Observer로 INP 성능 최적화)
 document.addEventListener('DOMContentLoaded', () => {
-  initMap();
-  
   // 예약 희망일 기본값을 내일 날짜로 기본 세팅
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
   const tomorrowStr = tomorrow.toISOString().substring(0, 10);
-  document.getElementById('reserveDate').value = tomorrowStr;
-  document.getElementById('reserveDate').min = new Date().toISOString().substring(0, 10);
+  const reserveDateEl = document.getElementById('reserveDate');
+  if (reserveDateEl) {
+    reserveDateEl.value = tomorrowStr;
+    reserveDateEl.min = new Date().toISOString().substring(0, 10);
+  }
+  
+  // Intersection Observer를 활용한 지도 지연 로딩
+  const mapElement = document.getElementById('map');
+  if (mapElement) {
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, observerInstance) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            initMap();
+            observerInstance.disconnect(); // 한 번 로드되면 감시 중단
+          }
+        });
+      }, { rootMargin: '200px' }); // 화면 진입 200px 전에 미리 로드 시작
+      observer.observe(mapElement);
+    } else {
+      // IntersectionObserver 미지원 구형 브라우저 대응 (폴백)
+      setTimeout(initMap, 500);
+    }
+  }
 });
 
 // 11. 예약 문의사항 전송 처리 (가상 제출 및 모달 알림)
