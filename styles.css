@@ -1592,3 +1592,200 @@ footer {
   contain-intrinsic-size: 800px;
 }
 
+/* 커스텀 티켓 보드 요금표 (보팅 전용) */
+.custom-ticket-board {
+  width: 100%;
+  background: #0b1a30; /* 이미지의 딥 블루 배경색과 일치 */
+  border-radius: 12px;
+  padding: 32px 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+.ticket-board-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.ticket-board-header .ticket-sub {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #00f0ff, #ffeb3b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.ticket-board-header h3 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.ticket-board-header h3 i {
+  color: #0076ff;
+  margin-right: 6px;
+}
+
+.custom-ticket {
+  position: relative;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.custom-ticket:last-child {
+  margin-bottom: 0;
+}
+
+/* 티켓 양옆 홈(Cutout) 구현 */
+.custom-ticket::before,
+.custom-ticket::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #0b1a30; /* 부모 배경색과 맞춰서 동그랗게 뚫린 효과 */
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.custom-ticket::before {
+  left: -9px;
+}
+
+.custom-ticket::after {
+  right: -9px;
+}
+
+.ticket-left {
+  flex: 1;
+  padding-right: 15px;
+  padding-left: 8px;
+  text-align: left;
+}
+
+.ticket-left h4 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #111111;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.3px;
+}
+
+.ticket-left p {
+  font-size: 0.85rem;
+  color: #666666;
+  margin: 0;
+  font-weight: 500;
+}
+
+.ticket-left p i {
+  color: #0076ff;
+  margin-right: 2px;
+}
+
+.ticket-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-right: 8px;
+}
+
+.ticket-badge {
+  background: linear-gradient(135deg, #0076ff, #00c6ff);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 800;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 118, 255, 0.3);
+  flex-shrink: 0;
+}
+
+.ticket-price-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.ticket-original {
+  font-size: 0.85rem;
+  color: #999999;
+  text-decoration: line-through;
+  line-height: 1.2;
+}
+
+.ticket-sale {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ff3333; /* 가격은 빨간색으로 통일 */
+  line-height: 1.2;
+  margin-top: 2px;
+}
+
+.ticket-sale span {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-left: 1px;
+}
+
+/* 모바일에서의 티켓 반응형 조정 */
+@media (max-width: 480px) {
+  .custom-ticket-board {
+    padding: 24px 16px;
+  }
+  .ticket-board-header h3 {
+    font-size: 1.5rem;
+  }
+  .custom-ticket {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 16px;
+  }
+  .ticket-left {
+    padding-right: 0;
+    padding-left: 0;
+    width: 100%;
+  }
+  .ticket-left h4 {
+    font-size: 1.05rem;
+  }
+  .ticket-right {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 0;
+    border-top: 1px dashed #e5e5e5;
+    padding-top: 12px;
+    box-sizing: border-box;
+  }
+  /* 모바일에서 세로 배치될 때 티켓 양옆 홈 가림 처리 조정 */
+  .custom-ticket::before,
+  .custom-ticket::after {
+    display: none;
+  }
+}
+
+

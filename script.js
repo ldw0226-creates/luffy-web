@@ -106,20 +106,65 @@ tabButtons.forEach(btn => {
 function openPriceBoard(boardName) {
   const modal = document.getElementById('priceBoardModal');
   const modalImg = document.getElementById('modalPriceBoardImg');
+  const modalCustomContent = document.getElementById('modalCustomContent');
   
-  // 이미지 매핑 경로
-  const imagePaths = {
-    '물놀이패키지': '패키지가격표/물놀이패키지.jpg',
-    '강습패키지': '패키지가격표/강습패키지.jpg',
-    '보팅': '패키지가격표/보팅.jpg',
-    '숙박물놀이패키지': '패키지가격표/숙박물놀이패키지.jpg',
-    '숙박강습패키지': '패키지가격표/숙박강습패키지.jpg'
-  };
-  
-  if (imagePaths[boardName]) {
-    modalImg.src = imagePaths[boardName];
-    modal.classList.add('active');
+  if (boardName === '보팅') {
+    // 보팅 요금표는 최신 가격정보(300k->200k, 500k->400k) 반영을 위해 이미지 대신 고화질 HTML 티켓으로 렌더링
+    modalImg.style.display = 'none';
+    modalCustomContent.style.display = 'block';
+    modalCustomContent.innerHTML = `
+      <div class="custom-ticket-board">
+        <div class="ticket-board-header">
+          <span class="ticket-sub">SUMMER MOTORBOAT</span>
+          <h3><i class="fa-solid fa-ship"></i> 모터보트 보팅</h3>
+        </div>
+        
+        <div class="custom-ticket">
+          <div class="ticket-left">
+            <h4>홍천강 일주 모터보트 보팅</h4>
+            <p><i class="fa-solid fa-user-group"></i> 탑승정원 5인 • 음료 5잔 제공</p>
+          </div>
+          <div class="ticket-right">
+            <div class="ticket-badge">33%</div>
+            <div class="ticket-price-box">
+              <span class="ticket-original">300,000</span>
+              <span class="ticket-sale">200,000<span>원</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="custom-ticket">
+          <div class="ticket-left">
+            <h4>남이섬 일주 모터보트 보팅</h4>
+            <p><i class="fa-solid fa-user-group"></i> 탑승정원 5인 • 음료 5잔 제공</p>
+          </div>
+          <div class="ticket-right">
+            <div class="ticket-badge">20%</div>
+            <div class="ticket-price-box">
+              <span class="ticket-original">500,000</span>
+              <span class="ticket-sale">400,000<span>원</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  } else {
+    // 다른 요금표들은 정상 이미지 로드
+    const imagePaths = {
+      '물놀이패키지': '패키지가격표/물놀이패키지.jpg',
+      '강습패키지': '패키지가격표/강습패키지.jpg',
+      '숙박물놀이패키지': '패키지가격표/숙박물놀이패키지.jpg',
+      '숙박강습패키지': '패키지가격표/숙박강습패키지.jpg'
+    };
+    
+    if (imagePaths[boardName]) {
+      modalCustomContent.style.display = 'none';
+      modalImg.style.display = 'block';
+      modalImg.src = imagePaths[boardName];
+    }
   }
+  
+  modal.classList.add('active');
 }
 
 // 6. 포토 갤러리 라이트박스 모달
