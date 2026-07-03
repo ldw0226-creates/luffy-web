@@ -1360,6 +1360,10 @@ footer {
     font-size: 2rem;
   }
   
+  .intro-features {
+    grid-template-columns: 1fr;
+  }
+  
   .services-grid {
     grid-template-columns: 1fr;
   }
