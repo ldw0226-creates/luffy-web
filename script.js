@@ -102,66 +102,97 @@ tabButtons.forEach(btn => {
   });
 });
 
-// 5. 요금표 원본 이미지 보기 모달
+// 5. 요금표 원본 이미지 보기 모달 (HTML 기반 고화질 모달로 전면 동기화)
 function openPriceBoard(boardName) {
   const modal = document.getElementById('priceBoardModal');
   const modalImg = document.getElementById('modalPriceBoardImg');
   const modalCustomContent = document.getElementById('modalCustomContent');
   
-  if (boardName === '보팅') {
-    // 보팅 요금표는 최신 가격정보(300k->200k, 500k->400k) 반영을 위해 이미지 대신 고화질 HTML 티켓으로 렌더링
+  // 모든 패키지의 최신 수정한 가격표 원본 데이터 정의
+  const boardData = {
+    '물놀이패키지': {
+      title: '물놀이 패키지',
+      sub: 'SELECT POPULAR RIDES',
+      icon: 'fa-water',
+      tickets: [
+        { name: '놀이기구 선택 2종 + 워터파크', desc: '인기 놀이기구중 2종 선택 • 워터파크 무료 포함', orig: '40,000', sale: '20,000', discount: '50%' },
+        { name: '놀이기구 선택 3종 + 워터파크', desc: '인기 놀이기구중 3종 선택 • 워터파크 무료 포함', orig: '60,000', sale: '30,000', discount: '50%' },
+        { name: '놀이기구 선택 5종 + 워터파크', desc: '인기 놀이기구중 5종 선택 • 워터파크 무료 포함', orig: '100,000', sale: '40,000', discount: '60%' }
+      ]
+    },
+    '강습패키지': {
+      title: '스키/보드 강습 패키지',
+      sub: 'PROFESSIONAL LESSONS',
+      icon: 'fa-graduation-cap',
+      tickets: [
+        { name: '체험 2회 + 워터파크', desc: '선출 코치 1:1 강습 [지상1회 + 수상2회] • 워터파크 포함', orig: '70,000', sale: '50,000', discount: '28%' },
+        { name: '체험 2회 + 놀이기구 3종 + 워터파크', desc: '선출 강습 2회 + 놀이기구 3종 + 워터파크 포함', orig: '120,000', sale: '70,000', discount: '41%' },
+        { name: '체험 2회 + 놀이기구 5종 + 워터파크', desc: '선출 강습 2회 + 놀이기구 5종 + 워터파크 포함', orig: '160,000', sale: '90,000', discount: '43%' }
+      ]
+    },
+    '보팅': {
+      title: '모터보트 보팅',
+      sub: 'SUMMER MOTORBOAT',
+      icon: 'fa-ship',
+      tickets: [
+        { name: '홍천강 일주 모터보트 보팅', desc: '탑승정원 5인 • 시그니처 음료 5잔 제공', orig: '300,000', sale: '200,000', discount: '33%' },
+        { name: '남이섬 일주 모터보트 보팅', desc: '탑승정원 5인 • 시그니처 음료 5잔 제공', orig: '500,000', sale: '400,000', discount: '20%' }
+      ]
+    },
+    '숙박물놀이패키지': {
+      title: '숙박+물놀이 패키지',
+      sub: 'LODGING & WATERPLAY',
+      icon: 'fa-hotel',
+      tickets: [
+        { name: '펜션 + 놀이기구 3종 + 워터파크', desc: '제휴/직영 펜션 1박 • 놀이기구 3종 • 워터파크 포함', orig: '110,000', sale: '50,000', discount: '54%' },
+        { name: '펜션 + 놀이기구 5종 + 워터파크', desc: '제휴/직영 펜션 1박 • 놀이기구 5종 • 워터파크 포함', orig: '150,000', sale: '60,000', discount: '60%' }
+      ]
+    },
+    '숙박강습패키지': {
+      title: '숙박+강습 패키지',
+      sub: 'LODGING & LESSON',
+      icon: 'fa-hotel',
+      tickets: [
+        { name: '펜션 + 강습 2회 + 워터파크', desc: '펜션 1박 • 선출 맞춤강습 2회 • 워터파크 무료 포함', orig: '110,000', sale: '80,000', discount: '27%' },
+        { name: '펜션 + 강습 2회 + 놀이기구 3종 + 워터파크', desc: '펜션 1박 • 선출 강습 2회 • 놀이기구 3종 • 워터파크', orig: '190,000', sale: '100,000', discount: '47%' },
+        { name: '펜션 + 강습 2회 + 놀이기구 5종 + 워터파크', desc: '펜션 1박 • 선출 강습 2회 • 놀이기구 5종 • 워터파크', orig: '210,000', sale: '110,000', discount: '48%' }
+      ]
+    }
+  };
+  
+  if (boardData[boardName]) {
+    const data = boardData[boardName];
     modalImg.style.display = 'none';
     modalCustomContent.style.display = 'block';
+    
+    let ticketsHtml = '';
+    data.tickets.forEach(ticket => {
+      ticketsHtml += `
+        <div class="custom-ticket">
+          <div class="ticket-left">
+            <h4>${ticket.name}</h4>
+            <p>${ticket.desc}</p>
+          </div>
+          <div class="ticket-right">
+            <div class="ticket-badge">${ticket.discount}</div>
+            <div class="ticket-price-box">
+              <span class="ticket-original">${ticket.orig}</span>
+              <span class="ticket-sale">${ticket.sale}<span>원</span></span>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+    
     modalCustomContent.innerHTML = `
       <div class="custom-ticket-board">
         <div class="ticket-board-header">
-          <span class="ticket-sub">SUMMER MOTORBOAT</span>
-          <h3><i class="fa-solid fa-ship"></i> 모터보트 보팅</h3>
+          <span class="ticket-sub">${data.sub}</span>
+          <h3><i class="fa-solid ${data.icon}"></i> ${data.title}</h3>
         </div>
-        
-        <div class="custom-ticket">
-          <div class="ticket-left">
-            <h4>홍천강 일주 모터보트 보팅</h4>
-            <p><i class="fa-solid fa-user-group"></i> 탑승정원 5인 • 음료 5잔 제공</p>
-          </div>
-          <div class="ticket-right">
-            <div class="ticket-badge">33%</div>
-            <div class="ticket-price-box">
-              <span class="ticket-original">300,000</span>
-              <span class="ticket-sale">200,000<span>원</span></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="custom-ticket">
-          <div class="ticket-left">
-            <h4>남이섬 일주 모터보트 보팅</h4>
-            <p><i class="fa-solid fa-user-group"></i> 탑승정원 5인 • 음료 5잔 제공</p>
-          </div>
-          <div class="ticket-right">
-            <div class="ticket-badge">20%</div>
-            <div class="ticket-price-box">
-              <span class="ticket-original">500,000</span>
-              <span class="ticket-sale">400,000<span>원</span></span>
-            </div>
-          </div>
-        </div>
+        ${ticketsHtml}
       </div>
     `;
-  } else {
-    // 다른 요금표들은 정상 이미지 로드
-    const imagePaths = {
-      '물놀이패키지': '패키지가격표/물놀이패키지.jpg',
-      '강습패키지': '패키지가격표/강습패키지.jpg',
-      '숙박물놀이패키지': '패키지가격표/숙박물놀이패키지.jpg',
-      '숙박강습패키지': '패키지가격표/숙박강습패키지.jpg'
-    };
-    
-    if (imagePaths[boardName]) {
-      modalCustomContent.style.display = 'none';
-      modalImg.style.display = 'block';
-      modalImg.src = imagePaths[boardName];
-    }
   }
   
   modal.classList.add('active');
